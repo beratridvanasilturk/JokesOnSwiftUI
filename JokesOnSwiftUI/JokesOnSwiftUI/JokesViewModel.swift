@@ -8,9 +8,10 @@
 import Foundation
 import Alamofire
 
+// ObservableObject ile JokesVM sinifini ContentView'da Observed olarak gozlemleme imkani saglar.
 class JokesViewModel : ObservableObject {
     //MARK: -Variables
-    // ViewModelde @published ile bildirilen icerige ContentView'da erisme imkanimiz olacak. (public var gibi dusunulebilir)
+    // ViewModelde @published ile bildirilen icerige ContentView'da erisme imkani saglar. (public var gibi dusunulebilir)
     @Published var jokes = [Value]()
     
     init() {
