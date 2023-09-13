@@ -29,7 +29,7 @@ struct ContentView: View {
             }
         }
     }
-        // API duzgun calisirsa listeye yeni joke ekler
+        // API duzgun calisirsa listeye yeni joke ekler.
         func addJoke() {
             jokesVM.getJokes()
     }
