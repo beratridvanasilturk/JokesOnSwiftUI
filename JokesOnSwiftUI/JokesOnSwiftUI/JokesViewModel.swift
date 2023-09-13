@@ -9,13 +9,15 @@ import Foundation
 import Alamofire
 
 class JokesViewModel : ObservableObject {
-    
+    //MARK: -Variables
+    // ViewModelde @published ile bildirilen icerige ContentView'da erisme imkanimiz olacak. (public var gibi dusunulebilir)
     @Published var jokes = [Value]()
     
     init() {
         getJokes()
     }
     
+    //MARK: -Funcs
     func getJokes() {
         
         AF.request("https://raw.githubusercontent.com/atilsamancioglu/JokesAppJsonData/main/chuck.json", method: .get).responseDecodable(of: Welcome.self) { response in
@@ -29,9 +31,6 @@ class JokesViewModel : ObservableObject {
             case .failure(let error):
                 print(error)
             }
-            
         }
- 
-        
     }
 }

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    //MARK: -Variables
     @ObservedObject var jokesVM = JokesViewModel()
-    
+    //MARK: -Body
     var body: some View {
         
         NavigationView{
@@ -19,12 +19,23 @@ struct ContentView: View {
                 
                 Text(element.joke)
                 
-            }.navigationBarTitle(Text("JokeSON"))
+            }
+            .navigationBarTitle(Text("JokeSON"))
+            // Bar Button eklemek icin kullanilir
+            .toolbar {
+                Button(action: addJoke) {
+                    Text("Add New Joke")
+                }
+            }
         }
-        
+    }
+        // API duzgun calisirsa listeye yeni joke ekler
+        func addJoke() {
+            jokesVM.getJokes()
     }
 }
 
+//MARK: -Preview Provider
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
